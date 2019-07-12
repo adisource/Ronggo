@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    {% block head %}
+
+    {% block meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock meta %}
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <title>Ronggo | {% block title %} {% endblock title %}</title>
+
+    {% block stylesheets %}
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- font awesome -->
+    <!-- Icon -->
+    <link href="{{ url_for('static', filename='icons/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='icons/material-design-iconic-font/material-design-iconic-font.min.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='icons/themify-icons/themify-icons.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='icons/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" />
+    <!-- Menu CSS -->
+    <link href="{{ url_for('static', filename='node_modules/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="{{ url_for('static', filename='node_modules/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="{{ url_for('static', filename='node_modules/morrisjs/morris.css') }}" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="{{ url_for('static', filename='node_modules/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='node_modules/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}"
+        rel="stylesheet">
+    <!-- Calendar CSS -->
+  
+
+    <link href="{{ url_for('static', filename='node_modules/calendar/dist/fullcalendar.css') }}" rel="stylesheet" />
+    <!-- animation CSS -->
+    <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pages/login-register-lock.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="{{ url_for('static', filename='css/colors/blue-dark.css') }}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    {% endblock stylesheets %}
+
+    {% endblock head %}
+
+</head>
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Elite admin</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        {% block body %}
+
+       
+
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+
+    {% block javascripts %}
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{{ url_for('static', filename='node_modules/jquery/jquery-3.2.1.min.js') }}"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="{{ url_for('static', filename='node_modules/popper/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{{ url_for('static', filename='js/perfect-scrollbar.jquery.min.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ url_for('static', filename='js/waves.js') }}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ url_for('static', filename='js/sidebarmenu.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <!--data tabel-->
+    <script src="{{ url_for('static', filename='node_modules/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='node_modules/raphael/raphael-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/morrisjs/morris.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+    <!-- Popup message jquery -->
+    <script src="{{ url_for('static', filename='node_modules/toast-master/js/jquery.toast.js') }}"></script>
+    <!-- Chart JS -->
+    <script src="{{ url_for('static', filename='js/dashboard1.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/toast-master/js/jquery.toast.js') }}"></script>>
+    {% endblock javascripts %}
+
+    {% endblock body %}
+</body>
+
+</html>

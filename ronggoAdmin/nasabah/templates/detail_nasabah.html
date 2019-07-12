@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Ronggo</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        
+                <div class="page-wrapper">
+                    <!-- ============================================================== -->
+                    <!-- Container fluid  -->
+                    <!-- ============================================================== -->
+                    <div class="container-fluid">
+                        <!-- ============================================================== -->
+                        <!-- Bread crumb and right sidebar toggle -->
+                        <!-- ============================================================== -->
+                        <div class="row page-titles">
+                            <div class="col-md-5 align-self-center">
+                                <h4 class="text-themecolor">Data Nasabah</h4>
+                            </div>
+                            <div class="col-md-7 align-self-center text-right">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        <li class="breadcrumb-item active">Datatable</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- End Bread crumb and right sidebar toggle -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Start Page Content -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-lg-4 col-xlg-3 col-md-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <center class="m-t-30"> <img src="{{url_for('static',filename='images/users/5.jpg')}}" class="img-circle" width="150" />
+                                            <h4 class="card-title m-t-10">{{nasabah.nama}}</h4>
+                                            <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                            <h4>Saldo : Rp&nbsp;50000</h4>
+                                            
+                                        </center>
+                                    </div>
+                                    <div>
+                                        <hr> </div>
+                                    <div class="card-body"> <small class="text-muted">Email  </small>
+                                        <h6>{{nasabah.email}}</h6> <small class="text-muted p-t-30 db">Nomer Hp</small>
+                                        <h6>{{nasabah.nomer_hp}}</h6> <small class="text-muted p-t-30 db">Alamat</small>
+                                        <h6>{{nasabah.alamat}}</h6>
+                                        <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
+                                        <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+                                        <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-lg-8 col-xlg-9 col-md-7">
+                                <div class="card">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs profile-tab" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#settings" role="tab">Nasabah</a> </li>
+                                        <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#riwayat" role="tab">Riwayat</a> </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        
+                                        <!--second tab-->
+                                        <div class="tab-pane active" id="settings" role="tabpanel">
+                                            <div class="card-body">
+                                                <form class="form-horizontal form-material" action="{{url_for('nasabah_blueprint.nasabahUpdate')}}" method="POST">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Kode Nasabah</label>
+                                                        <div class="col-md-12">
+                                                         <input type="text" placeholder="N-2019....." class="form-control form-control-line" value="{{nasabah.kode}}" name="kode">
+
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Nama</label>
+                                                        <div class="col-md-12">
+                                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line" value="{{nasabah.nama}}" name="nama">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Tempat Lahir</label>
+                                                        <div class="col-md-12">
+                                                            <input type="text" placeholder="......" class="form-control form-control-line" value="{{nasabah.tempat_lahir}}" name="tempat_lahir" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Tanggal Lahir</label>
+                                                        <div class="col-md-12">
+                                                            <input type="date" min="12-12-1000"   value="{{nasabah.tanggal_lahir}}" class="form-control form-control-line" name="tanggal_lahir">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Alamat</label>
+                                                        <div class="col-md-12">
+                                                            <input type="text" placeholder="Alamat" value="{{nasabah.alamat}}" class="form-control form-control-line" name="alamat">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Email</label>
+                                                        <div class="col-md-12">
+                                                            <input type="email" placeholder="Email" value="{{nasabah.email}}" class="form-control form-control-line" name="email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-12">Nomer Hp</label>
+                                                        <div class="col-sm-12">
+                                                                <input type="tel" placeholder="Nomer Hp" value="{{nasabah.nomer_hp}}" class="form-control form-control-line" name="nomer_hp">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button class="btn btn-success">Update Nasabah</button>
+                                                            <a href="/nasabah" class="btn btn-info">Kembali</a>
+                                                        </div>
+                                                    </div>
+                                                </form> 
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="riwayat" role="tabpanel">
+                                                <div class="card-body">
+                                                        <div class="row">
+                                                                <div class="col-12">
+                                            
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+            
+                                            
+                                                                            <div class="table-responsive m-t-40">
+                                                                                <table id="example23" class="table table-bordered table-striped">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            
+                                                                                            <th>Jumlah Transaksi</th>
+                                                                                            <th>Jumlah Saldo</th>
+                                                                                            <th>Berat Sampah</th>
+                                                                                            <th>Jenis Sampah</th>
+                                                                                           
+                                                                                            <th>Aksi</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tfoot>
+                                                                                            <tr>
+                                                                                                <th>Total Transaksi = 40</th>
+                                                                                                <th>Total Saldo = Rp 4000</th>
+                                                                                                <th>Total Berat Sampah = 40 kg</th>
+                                                                                               
+                                                                                                
+                                                                                                
+                                                                                            </tr>
+                                                                                        </tfoot>
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <tr>
+                                                                                            <td>20</td>
+                                                                                            <td>Rp 2000</td>
+                                                                                            <td>{{hasil}}</td>
+                                                                                            <td>Plastik</td>          
+                                                                                            <td>
+                                                                                                   <a class="btn btn-danger"
+                                                                                                    href="/nasabah/delete/{{ nasabah.kode }}"><i
+                                                                                                        class="fa fa-trash"></i> </a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        
+                                                                                        
+                                                                                       
+                                            
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                            
+                                                                </div>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- End Container fluid  -->
+                        <!-- ============================================================== -->
+                    </div>
+        
+                </div>
+        
+
+
+
+</body>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super()}}
+
+<script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $('#myTable1').DataTable();
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    "columnDefs": [{
+                        "visible": false,
+                        "targets": 2
+                    }],
+                    "order": [
+                        [2, 'asc']
+                    ],
+                    "displayLength": 25,
+                    "drawCallback": function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: 'current'
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {
+                            page: 'current'
+                        }).data().each(function (group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before(
+                                    '<tr class="group"><td colspan="5">' + group +
+                                    '</td></tr>');
+                                last = group;
+                            }
+                        });
+                    }
+                });
+                // Order by the grouping
+                $('#example tbody').on('click', 'tr.group', function () {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                        table.order([2, 'desc']).draw();
+                    } else {
+                        table.order([2, 'asc']).draw();
+                    }
+                });
+            });
+        });
+        $('#example23').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        
+    </script>
+
+    
+
+
+{% endblock javascripts %}

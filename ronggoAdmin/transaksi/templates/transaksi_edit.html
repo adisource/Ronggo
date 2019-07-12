@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Ronggo</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Edit Transaksi</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item ">Data Transaksi</li>
+                                <li class="breadcrumb-item active">Edit Transkasi </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form p-t-20" action="{{url_for('transaksi_blueprint.transaksiUpdate')}}"
+                                    method="POST">
+                                    <div class="form-group">
+                                        <label for="exampleInputuname">Kode Transaksi</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Kode Transkasi"
+                                                name="kode_transaksi" required="required" value="{{transaksi.kode}} "
+                                                readonly>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Nama" name="nama"
+                                                required="required" value="{{transaksi.nama}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Jenis Transaksi
+                                            </label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-map"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Jenis Transaksi"
+                                                name="tempat_lahir" required="required"
+                                                value="{{transaksi.jenis_transaksi}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal
+                                            </label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                        class="fa fa-birthday-cake"></i></span>
+                                            </div>
+                                            <input type="date" class="form-control" placeholder="Tanggal"
+                                                name="tanggal_lahir" required="required"
+                                                value="{{transaksi.tanggal}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Jumlah Transaksi</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-map"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Alamat" name="jumlah_transaksi"
+                                                required="required" value="{{transaksi.jumlah_transaksi}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tujuan Transaksi</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-email"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Tujuan Transaksi" name="tujuan_transaksi"
+                                                aria-describedby="basic-addon2" required="required"
+                                                value="{{transaksi.tujuan_transaksi}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd1">Status Transaksi</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+                                            </div>
+                                            <input type="tel" class="form-control" placeholder="Status Transaksi"
+                                                name="Status_transaksi" required="required" value="{{transaksi.Status_transaksi}}">
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" value="{{ transaksi.kode }}" name="kode">
+
+                                    <div class="modal-footer">
+                                        <button type="submit"
+                                            class="btn btn-success waves-effect waves-light">Update</button>
+                                        <button type="button" class="btn btn-info waves-effect text-left"
+                                            data-dismiss="modal">Kembali</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+            </div>
+
+        </div>
+
+
+</body>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super()}}
+
+
+{% endblock javascripts %}

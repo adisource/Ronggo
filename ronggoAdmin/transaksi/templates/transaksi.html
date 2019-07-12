@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+
+{% block title %} Transaksi {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Ronggo</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Data Transaksi</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Data Transaksi</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class=" row page-titles">
+                    <div class="col-lg-6 col-md-6 ">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-ticket"></i></span>
+                                                </div>
+                                                
+                                                <select class="form-control">
+                                                    <option>--Pilih Kode Nasabah --</option>
+                                                    
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <di class="col-2">
+                                        <button class="btn btn-info">lihat</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-7">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label>Tgl trx</label>
+
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="date" class="form-control">
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-6 ">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h1 style="text-align: center">Rp 20.000</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card border-warning">
+                            <div class="card-header bg-warning">
+                                
+                            </div>
+                            <div class="card-body">
+                                    <div class="card">
+                                            <div class="card-body">
+                                                <form class="form p-t-20"
+                                                    action="#"
+                                                    method="POST">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputuname">Kode Nasabah</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i
+                                                                    class="fa fa-ticket"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Kode Tabungan" name="kode"
+                                                                value="" required="required"
+                                                                readonly>
+                                                            <input type="hidden" value=""
+                                                                name="kode_urutan">
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                   
+                                                    <div class="form-group">
+                                                        <label for="exampleInputuname">Nama
+                                                           </label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i
+                                                                        class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="nama" name="nama"
+                                                                aria-describedby="basic-addon1"
+                                                                required="required" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputuname">Jenis Transaksi</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i
+                                                                        class="fa fa-money"></i></span>
+                                                            </div>
+                                                            <select class="form-control" name="jenis_transaksi">
+                                                                <option>Langsung</option>
+                                                                <option>Pulsa Listrik</option>
+                                                                <option>Pulsa Hp</option>
+                                                                <option>Kuota Internet</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Tujuan Transaksi
+                                                           </label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"
+                                                                    id="basic-addon2"><i
+                                                                        class="fa fa-money"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Tujuan Transaksi" name="saldo"
+                                                                aria-describedby="basic-addon2"
+                                                                required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="exampleInputEmail1">Jumlah Transaksi
+                                                               </label>
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon2"><i
+                                                                            class="fa fa-money"></i></span>
+                                                                </div>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Jumlah Transaksi" name="saldo"
+                                                                    aria-describedby="basic-addon2"
+                                                                    required="required">
+                                                            </div>
+                                                        </div>
+                                                    <input type="hidden" value="" name="kode">
+                                                   
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit"
+                                                            class="btn btn-success waves-effect waves-light">Simpan</button>
+                                                        <button type="button"
+                                                            class="btn btn-info waves-effect text-left"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-success">
+                            <div class="card-header bg-success">
+                                
+                            </div>
+                            <div class="card-body">
+                                    <div class="table-responsive m-t-40">
+                                            <table id="myTable" class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Jenis Transaksi </th>
+                                                        <th>Jumlah Transaksi</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+        
+                                                </tbody>
+                                            </table>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+
+    </div>
+
+
+</body>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super()}}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+        $('#myTable1').DataTable();
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before(
+                                '<tr class="group"><td colspan="5">' + group +
+                                '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+</script>
+
+{% endblock javascripts %}

@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<body class="skin-blue fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Ronggo</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Datatable</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Datatable</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-info " data-toggle="modal"
+                                    data-target=".bs-example-modal-medium"><i class="fa fa-plus-circle"></i>
+                                    Tambah Tabungan</button>
+
+                                <!-- sample modal content -->
+                                <div class="modal fade bs-example-modal-medium
+                                        " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                                    aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog modal-medium">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myLargeModalLabel">Tambah Data
+                                                    Tabungan</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <form class="form p-t-20"
+                                                            action="{{url_for('tabungan_blueprint.tambahTabungan')}}"
+                                                            method="POST">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputuname">Kode Tabungan</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                            class="fa fa-ticket"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Kode Tabungan" name="kode"
+                                                                        value="{{kodereg}}" required="required"
+                                                                        readonly>
+                                                                    <input type="hidden" value="{{inc}}"
+                                                                        name="kode_urutan">
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                           
+                                                            <div class="form-group">
+                                                                <label for="exampleInputuname">Tanggal
+                                                                   </label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="fa fa-calendar"></i></span>
+                                                                    </div>
+                                                                    <input type="date" class="form-control"
+                                                                        placeholder="Tanggal Lahir" name="tanggal"
+                                                                        aria-describedby="basic-addon1"
+                                                                        required="required">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputuname">Debet</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="fa fa-money"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Debet" name="debet"
+                                                                        aria-describedby="basic-addon1"
+                                                                        required="required">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Saldo
+                                                                   </label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2"><i
+                                                                                class="fa fa-money"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Saldo" name="saldo"
+                                                                        aria-describedby="basic-addon2"
+                                                                        required="required">
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" value="{{ tabungan.kode }}" name="kode">
+                                                           
+
+                                                            <div class="modal-footer">
+                                                                <button type="submit"
+                                                                    class="btn btn-success waves-effect waves-light">Simpan</button>
+                                                                <button type="button"
+                                                                    class="btn btn-info waves-effect text-left"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+
+                                    <!-- /.modal -->
+
+                                </div>
+
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Kode Tabungan</th>
+                                                <th>Tanggal </th>
+                                                <th>Debet</th>
+                                                <th>Saldo</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for tabungan in tabungan %}
+                                            <tr>
+                                                <td>{{tabungan.kode}}</td>
+                                                <td>{{tabungan.tanggal}}</td>
+                                                <td>{{tabungan.debet}}</td>
+                                                <td>{{tabungan.saldo}}</td>
+                                                
+                                                <td>
+                                                    <a class="btn btn-success"
+                                                        href="/tabungan/edit/{{ tabungan.kode }}"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <a class="btn btn-danger"
+                                                        href="/tabungan/deletep/{{ tabungan.kode }}"><i
+                                                            class="fa fa-trash"></i> </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+
+    </div>
+
+
+</body>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super()}}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+        $('#myTable1').DataTable();
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before(
+                                '<tr class="group"><td colspan="5">' + group +
+                                '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+</script>
+
+{% endblock javascripts %}
